@@ -49,19 +49,24 @@
             border: none;
             transition: all 0.3s ease-in-out;
         }
+
+        .modal-text-title {
+            font-family: 'Holtwood One SC', serif;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 
 <body class="container text-center">
     <section>
-        <h1>Samilly, Você aceita namorar comigo?</h1>
+        <h1><span id="name"></span>, Você aceita namorar comigo?</h1>
         <div class="btn-container">
             <button type="button" class="btn" id="yes-btn" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Sim</button>
             <button type="button" class="btn" id="no-btn">Não</button>
         </div>
     </section>
-    <div class="fixed-bottom h6" class="small text-muted">Feito por: <a target="_blank"
+    <div class="fixed-bottom h6" class="small text-muted">Feito por: <a rel="noopener" target="_blank"
             href="https://www.instagram.com/phat_oliveira/" class="small text-decoration-none">NOX-0202</a></div>
 
     <!-- Modal -->
@@ -70,14 +75,15 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <!-- heart emoji -->
-                    <p class="mb-0">
-                        agora não tem mais volta!
+                    <p class="h2">
+                        ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
                     </p>
-                    ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
                     <video width="300" height="400" autoplay muted loop playsinline>
                         <source src=" ./video.mp4" type="video/mp4">
                     </video>
-
+                    <p class="mb-0 modal-text-title">
+                        agora não tem mais volta!
+                    </p>
                     <button type="button" class="btn w-100" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
@@ -106,6 +112,17 @@
             noBtn.style.left = Math.random() * 90 + 'vw';
 
         });
+
+        // get url params
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('nome');
+
+        if (name) {
+            document.getElementById('name').innerHTML = name;
+            document.title = `${name.charAt(0).toUpperCase() + name.slice(1)}, Você aceita namorar comigo?`;
+        } else {
+            document.getElementById('name').innerHTML = 'Samilly';
+        }
     </script>
 </body>
 
