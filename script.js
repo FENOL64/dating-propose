@@ -19,6 +19,7 @@
     if (!love_name) {
         love_name = prompt('Qual o nome da pessoa que você quer pedir em namoro?');
         if (!love_name) love_name = 'amor';
+        love_name = love_name.toLowerCase();
     }
 
     document.getElementById('name').innerHTML = love_name;
