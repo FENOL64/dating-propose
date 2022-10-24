@@ -54,6 +54,12 @@
             font-family: 'Holtwood One SC', serif;
             font-size: 1.5rem;
         }
+
+        .btn:hover {
+            background-color: #f88062;
+            color: #fff;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -62,20 +68,18 @@
         <h1><span id="name"></span>, Você aceita namorar comigo?</h1>
         <div class="btn-container">
             <button type="button" class="btn" id="yes-btn" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Sim</button>
+                data-bs-target="#yes_modal">Sim</button>
             <button type="button" class="btn" id="no-btn">Não</button>
         </div>
     </section>
     <div class="fixed-bottom h6" class="small text-muted">Feito por: <a rel="noopener" target="_blank"
             href="https://www.instagram.com/phat_oliveira/" class="small text-decoration-none">NOX-0202</a></div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="yes_modal" tabindex="-1" aria-labelledby="yes_modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-body">
-                    <!-- heart emoji -->
-                    <p class="h2">
+                    <p class="h3">
                         ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
                     </p>
                     <video width="300" height="400" autoplay muted loop playsinline>
@@ -99,17 +103,13 @@
 
         yesBtn.setAttribute('disabled', true);
 
-        yesBtn.addEventListener('click', () => {
-            element.classList.remove("mystyle");
-        });
-
         noBtn.addEventListener('click', () => {
-            // change no-btn position
-            yesBtn.removeAttribute('disabled');
+
+            if (yesBtn.hasAttribute('disabled')) yesBtn.removeAttribute('disabled');
 
             noBtn.style.position = 'absolute';
-            noBtn.style.top = Math.random() * 90 + 'vh';
-            noBtn.style.left = Math.random() * 90 + 'vw';
+            noBtn.style.top = Math.random() * 85 + 'vh';
+            noBtn.style.left = Math.random() * 80 + 'vw';
 
         });
 
